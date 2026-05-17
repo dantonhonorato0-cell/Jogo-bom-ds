@@ -1,11 +1,12 @@
-import random 
-# nome do meliante 
+import random  # gera números aleatórios (sorteio)
+# nome do vagabundo 
 nome = input("Digite seu nome nobre: ")
 print(f"Olá, {nome}")
 
+# .strip() tira espaços e .lower() deixa tudo em minúsculo para evitar erros de digitação
 classe_escolhida = input("Entre com a classe (Mago, Guerreiro, Arqueiro): ").strip().lower()
 
-# 1Sistema do inventário do abençoado 
+# 1 inventário: Define o nome bonito da classe e a arma inicial
 if classe_escolhida == "mago":
     classe = "Mago"
     arma = "Cajado de Cristal"
@@ -22,7 +23,7 @@ else:
 print(f"\nClasse escolhida: {classe}")
 print(f"Item adicionado ao inventário: [{arma}]")
 
-# 2Sistema de Dados (Rolar 3 dados de 6 lados)
+# 2 sistema de DADOS: Rola 3 dados de 6 lados e soma os resultados para gerar um bônus
 print("\nRolando os dados de atributos...")
 dado1 = random.randint(1, 6)
 dado2 = random.randint(1, 6)
@@ -30,7 +31,7 @@ dado3 = random.randint(1, 6)
 pontos_dados = dado1 + dado2 + dado3
 print(f"Você rolou os dados ({dado1}, {dado2}, {dado3}) e conseguiu {pontos_dados} pontos extras!")
 
-# 3sistema de atributos Base + Bônus dos dados
+# 3 sistema de atributos: Define os status base e aplica o bônus do dado no atributo principal de cada classe
 if classe == "Mago":
     vida = 40
     ataque = 5
@@ -43,7 +44,8 @@ else:  # Arqueiro
     vida = 50
     ataque = 18 + pontos_dados # Arqueiro ganha o bônus em Ataque
     magia = 5
-# pra aparecer a Ficha do Personagem
+
+# EX: #exibicao :Mostra a ficha final usando f-strings para injetar as variáveis no texto
 print("\n=== FICHA DO PERSONAGEM ===")
 print(f"Nome: {nome}")
 print(f"Classe: {classe}")
@@ -52,4 +54,5 @@ print(f"Vida: {vida}")
 print(f"Ataque: {ataque}")
 print(f"Magia: {magia}")
 print("===========================")
+
 
